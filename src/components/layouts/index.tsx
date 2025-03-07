@@ -2,13 +2,15 @@ import { Outlet } from "react-router-dom";
 import { Header, Sidebar } from "../partials";
 
 const MainLayout = () => {
-	return (
-		<>
-			<Header />
-			<Sidebar />
-			<Outlet />
-		</>
-	);
+  return (
+    <>
+      <Header />
+      <div className="flex ">
+        <Sidebar />
+        <Outlet />
+      </div>
+    </>
+  );
 };
 
-export default MainLayout
+export default MainLayout;

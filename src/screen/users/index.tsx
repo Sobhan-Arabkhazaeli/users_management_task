@@ -1,8 +1,11 @@
+import UsersWrapper from "../../components/pages/users";
 
 const Users = () => {
   return (
-    <div className="text-3xl font-extrabold"></div>
-  )
-}
+    <>
+      <UsersWrapper />
+    </>
+  );
+};
 
-export default Users
+export default Users;

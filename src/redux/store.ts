@@ -4,6 +4,7 @@ import sideBarMenu from "./slices/menu";
 import { persistReducer } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
+import { GetAllUsers } from "../core/services/api/GetAllUsers";
 
 const persistConfig = {
   key: "root",
@@ -18,8 +19,11 @@ const persistedTheme = persistReducer(persistConfig, themeSlice);
 const store: Store = configureStore({
   reducer: {
     persistedTheme,
-    sideBarMenu
+    sideBarMenu,
+    [GetAllUsers.reducerPath]: GetAllUsers.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(GetAllUsers.middleware),
 });
 
 const persistor = persistStore(store);
