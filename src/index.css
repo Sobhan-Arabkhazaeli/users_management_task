@@ -19,10 +19,16 @@
         --color-purple: #8776eb;
     }
 
-
+    
     @font-face {
         font-family: Neometric medium;
         src: local("Neometric"), url("./assets/fonts/NeometricAlt-Medium.ttf"),
-            format("ttf");
+        format("ttf");
     }
+
+    body { 
+        @apply p-5
+    }
+
+
 }
