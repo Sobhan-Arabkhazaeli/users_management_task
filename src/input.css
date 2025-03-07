@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+    :root {
+        --color-main: #fff;
+        --color-Navy: #150a4f;
+        --color-zinc: #888;
+        --color-purple: #8776eb;
+    }
+
+    .dark {
+        --color-main: #222;
+        --color-Navy: #e8e7ee;
+        --color-zinc: #999;
+        --color-purple: #8776eb;
+    }
+
+
+    @font-face {
+        font-family: Neometric medium;
+        src: local("Neometric"), url("./assets/fonts/NeometricAlt-Medium.ttf"),
+            format("ttf");
+    }
+}

@@ -1,7 +1,7 @@
 
 const Users = () => {
   return (
-    <div>users</div>
+    <div className="text-3xl font-extrabold">People</div>
   )
 }
 
