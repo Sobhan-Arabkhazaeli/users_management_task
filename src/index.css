@@ -10,6 +10,7 @@
         --color-Navy: #150a4f;
         --color-zinc: #888;
         --color-purple: #8776eb;
+        --color-menu: #f3f1f1;
     }
 
     .dark {
@@ -17,6 +18,7 @@
         --color-Navy: #e8e7ee;
         --color-zinc: #999;
         --color-purple: #8776eb;
+        --color-menu: #333;
     }
 
     
@@ -25,10 +27,5 @@
         src: local("Neometric"), url("./assets/fonts/NeometricAlt-Medium.ttf"),
         format("ttf");
     }
-
-    body { 
-        @apply p-5
-    }
-
 
 }

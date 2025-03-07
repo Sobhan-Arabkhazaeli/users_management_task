@@ -11,6 +11,7 @@ export default {
         Navy: "var(--color-Navy)",
         zinc: "var(--color-zinc)",
         purple: "var(--color-purple)",
+        menu: "var(--color-menu)",
       },
     },
   },
