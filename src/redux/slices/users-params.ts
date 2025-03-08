@@ -18,13 +18,13 @@ const UsersParams = createSlice({
   name: "shops-params",
   initialState,
   reducers: {
-    handleShopSearch: (
+    handleUsersSearch: (
       state: IUsersParams,
       action: { payload: SearchType }
     ) => {
       state.search = action.payload;
     },
-    handleShopPage: (state: IUsersParams, action: { payload: PageType }) => {
+    handleUsersPage: (state: IUsersParams, action: { payload: PageType }) => {
       state.page = action.payload;
     },
     handleLimit: (state: IUsersParams, action: { payload: LimitType }) => {
@@ -42,6 +42,6 @@ export type TUserParamsSelector = {
   UsersParams: IUsersParams;
 };
 
-export const { handleShopSearch, handleShopPage, handleLimit, handleSortBy } =
+export const { handleUsersSearch, handleUsersPage, handleLimit, handleSortBy } =
   UsersParams.actions;
 export default UsersParams.reducer;

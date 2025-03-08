@@ -7,9 +7,11 @@ interface IProp {
   usersData: TUserDetails[] | undefined;
   isLoading?: boolean;
   isSuccess?: boolean;
+  isError?: boolean;
 }
 
-const WrapperCards: FC<IProp> = ({ usersData, isLoading }) => {
+const WrapperCards: FC<IProp> = ({ usersData, isLoading, isError }) => {
+  // Rendering state before loading and when isLoading is executed
   if (isLoading) {
     return (
       <div className="flex gap-5 flex-wrap justify-around">
@@ -18,18 +20,19 @@ const WrapperCards: FC<IProp> = ({ usersData, isLoading }) => {
         ))}
       </div>
     );
+  } else if (isError) {
+    // Rendering state when data is undefined or there are 0 items
+    return <h1>User not found</h1>;
+  } else if (usersData !== undefined && usersData?.length !== 0) {
+    return (
+      <div className="flex gap-5 flex-wrap justify-around">
+        {usersData?.map((item) => (
+          <UserCard key={item.id} {...item} />
+        ))}
+      </div>
+    );
   } else {
-    if (usersData !== undefined) {
-      return (
-        <div className="flex gap-5 flex-wrap justify-around">
-          {usersData?.map((item) => (
-            <UserCard key={item.id} {...item} />
-          ))}
-        </div>
-      );
-    } else {
-      return <h1>User not found</h1>;
-    }
+    return <h1>User not found</h1>;
   }
 };
 
