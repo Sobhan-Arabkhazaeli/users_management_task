@@ -14,8 +14,8 @@ const SearchInput:FC<IPropsSearch> = ({setSearch}) => {
       >
         <InputBase
           sx={{ ml: 1, flex: 1 }}
-          placeholder="Search Google Maps"
-          inputProps={{ "aria-label": "search google maps" }}
+          placeholder="Search By name..."
+          inputProps={{ "aria-label": "Search By name..." }}
           onChange={(e)=> setSearch(e.target.value)}
         />
         <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
