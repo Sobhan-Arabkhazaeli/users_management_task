@@ -9,7 +9,7 @@ const Handler: TFCChildren = ({ children }) => {
   );
   return (
     <div
-      className={`${sidebar ? "w-full h-screen fixed" : "!w-0"}  z-50   bg-black/100 lg:relative lg:w-auto`}
+      className={`${sidebar ? "w-full h-screen fixed" : "!w-0"}  z-50   bg-black/30 lg:relative lg:w-auto`}
       onClick={() => dispatch(toggleSidebar(false))}>
       <div
         onClick={() => dispatch(toggleSidebar(true))}

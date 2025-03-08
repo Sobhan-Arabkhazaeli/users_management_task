@@ -11,6 +11,8 @@
         --color-zinc: #888;
         --color-purple: #8776eb;
         --color-menu: #f3f1f1;
+        --color-bgCard: #dadada;
+        --color-whiteGrayLish: #fcfcfc;
     }
 
     .dark {
@@ -19,6 +21,8 @@
         --color-zinc: #999;
         --color-purple: #8776eb;
         --color-menu: #333;
+        --color-bgCard: #222;
+        --color-whiteGrayLish: #444;
     }
 
     

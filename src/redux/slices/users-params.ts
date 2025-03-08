@@ -5,7 +5,7 @@ const initialState: IUsersParams = {
   search: undefined,
   sortBy: null,
   page: 1,
-  limit: 8,
+  limit: 10,
 };
 
 // Getting the IUsersParams property type individually with Indexed Access Types
