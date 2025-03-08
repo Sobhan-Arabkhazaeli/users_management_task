@@ -13,7 +13,7 @@ const Handler: TFCChildren = ({ children }) => {
       onClick={() => dispatch(toggleSidebar(false))}>
       <div
         onClick={() => dispatch(toggleSidebar(true))}
-        className={`${sidebar ? "w-48 px-4 top-0  fixed bg-menu" : "w-0 !p-0"} bg-red-300 flex  flex-col items-center overflow-hidden transition-all  lg:w-36 lg:!px-4 ltr:left-0 rtl:right-0`}>
+        className={`${sidebar ? "w-48 px-4 top-0  fixed bg-menu" : "w-0 !p-0"} flex  flex-col items-center overflow-hidden transition-all  lg:w-36 lg:!px-4 ltr:left-0 rtl:right-0`}>
         {children}
       </div>
     </div>
