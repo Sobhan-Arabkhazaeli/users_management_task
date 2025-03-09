@@ -5,7 +5,7 @@ import { Box, Typography, Chip } from "@mui/material";
 // types
 type idType = TUserDetails["id"];
 type isFavoriteType = TUserDetails["isFavorite"];
-type nameType = string;
+type nameType = string | undefined;
 type createdAtType = TUserDetails["createdAt"];
 
 interface IProps {

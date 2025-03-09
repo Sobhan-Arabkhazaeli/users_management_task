@@ -4,9 +4,10 @@ import CardBody from "./CardBody";
 import CardHeader from "./CardHeader";
 import { Box } from "@mui/material";
 
+type idType = TUserDetails["id"];
 interface IProps {
   item: TUserDetails;
-  toggleFavorite: () => void;
+  toggleFavorite: (id: idType) => void;
 }
 
 const UserCard: FC<IProps> = ({ item, toggleFavorite }) => {

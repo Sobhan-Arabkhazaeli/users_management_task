@@ -10,11 +10,12 @@ type idType = TUserDetails["id"];
 type avatarType = TUserDetails["avatar"];
 type isFavoriteType = TUserDetails["isFavorite"];
 
+
 interface IProps {
   id: idType;
   avatar: avatarType;
   isFavorite: isFavoriteType;
-  toggleFavorite: () => void;
+  toggleFavorite: (id : idType) => void;
 }
 
 const CardHeader: FC<IProps> = ({ id, toggleFavorite }) => {

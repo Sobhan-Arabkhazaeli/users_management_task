@@ -44,6 +44,7 @@ const FavoriteWrapper = () => {
     event: React.ChangeEvent<unknown>,
     value: number
   ) => {
+    console.log(event)
     setPage(value);
   };
 

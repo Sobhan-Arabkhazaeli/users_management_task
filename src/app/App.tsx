@@ -1,5 +1,5 @@
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
-import { AppRouter } from "../app-router";
+import { AppRouter } from "../route";
 // ** Third Party Components
 import { RouterProvider as ReactRouterProvider } from "react-router-dom";
 import { useSelector } from "react-redux";

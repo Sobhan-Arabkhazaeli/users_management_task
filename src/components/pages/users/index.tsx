@@ -38,6 +38,7 @@ const UsersWrapper = () => {
   useEffect(() => {
     // Perform search with deferredSearchTerm
     performSearch(deferredSearchTerm);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deferredSearchTerm]);
 
   const performSearch = (searchTerm: string) => {
@@ -52,6 +53,7 @@ const UsersWrapper = () => {
         Math.ceil(dataWithoutParams?.length / Number(usersParams?.limit))
       );
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataWithoutParams?.length, usersParams.limit]);
 
   // Handle sending the number of pages to the API
@@ -59,6 +61,7 @@ const UsersWrapper = () => {
     event: React.ChangeEvent<unknown>,
     value: number
   ) => {
+    console.log(event)
     Dispatch(handleUsersPage(value));
   };
 

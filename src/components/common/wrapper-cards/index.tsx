@@ -37,6 +37,7 @@ const WrapperCards: FC<IProp> = ({ usersData, isLoading, isError }) => {
         }
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [FavoriteList, usersData]);
 
   const containerStyles = {
