@@ -1,6 +1,6 @@
-# (Shardi) Test Task  ✨  
+# (Shahrdi) Test Task  ✨  
 
-This project is an entrance exam for the Shardi team, the task involves fetching and displaying a list of users from an API. Users are searchable and can be added to a favorites list. Favorite user information is stored in LocalStorage, so it persists across page refreshes.  
+This project is an entrance exam for the Shahrdi team, the task involves fetching and displaying a list of users from an API. Users are searchable and can be added to a favorites list. Favorite user information is stored in LocalStorage, so it persists across page refreshes.  
 
 ## Installation 🛠️  
 
@@ -13,7 +13,7 @@ This project is an entrance exam for the Shardi team, the task involves fetching
 2.  Navigate to the project directory:  
 
     ```bash  
-    cd YOUR FILE
+    cd users_mangement_task
     ```  
 
 3.  Install Dependencies:  
