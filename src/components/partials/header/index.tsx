@@ -1,26 +1,64 @@
 import LogoImage from "../../../assets/shardi.png";
-
 import { Link } from "react-router-dom";
 import ThemeSwitcher from "../../common/theme-switcher";
 import ToggleSidebar from "../../common/toggle-sidebar";
+import { Box} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const Header = () => {
+  const theme = useTheme(); // To access the theme for responsive breakpoints
+
   return (
-    <header className="z-40 flex h-16 w-full top-0 items-center justify-between px-5 py-2.5 shadow-sm bg-Navy">
-      <div className="flex gap-1 items-center sm:gap-3 lg:hidden">
+    <Box
+      sx={{
+        zIndex: 40,
+        display: "flex",
+        height: "64px",
+        width: "100%",
+        position: "sticky",
+        top: 0,
+        alignItems: "center",
+        justifyContent: "space-between",
+        paddingX: 2,
+        paddingY: 1,
+        boxShadow: theme.shadows[1],
+        backgroundColor: theme.palette.secondary.main,
+      }}
+    >
+      {/* Left side: Logo and Sidebar Toggle for small screens */}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 1,
+          [theme.breakpoints.up("sm")]: { gap: 3 }, 
+          [theme.breakpoints.up("lg")]: { display: "none" }, 
+        }}
+      >
         <Link to={"/"}>
           <img
             src={LogoImage}
-            aria-label="logo png"
-            className=" !w-24  rounded-3xl"
+            alt="logo png"
+            style={{
+              width: "96px",
+              borderRadius: "1.5rem",
+            }}
           />
         </Link>
-        <ToggleSidebar/>
-      </div>
-      <div className="flex gap-1 sm:gap-4">
+        <ToggleSidebar />
+      </Box>
+
+      {/* Right side: Theme Switcher */}
+      <Box
+        sx={{
+          display: "flex",
+          gap: 1,
+          [theme.breakpoints.up("sm")]: { gap: 4 },
+        }}
+      >
         <ThemeSwitcher />
-      </div>
-    </header>
+      </Box>
+    </Box>
   );
 };
 

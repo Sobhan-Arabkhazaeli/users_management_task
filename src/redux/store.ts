@@ -1,6 +1,7 @@
 import { configureStore, Store } from "@reduxjs/toolkit";
 import themeSlice from "./slices/theme";
 import sideBarMenu from "./slices/menu";
+import UsersParams from "./slices/users-params";
 import { persistReducer } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
@@ -20,6 +21,7 @@ const store: Store = configureStore({
   reducer: {
     persistedTheme,
     sideBarMenu,
+    UsersParams,
     [GetAllUsers.reducerPath]: GetAllUsers.reducer,
   },
   middleware: (getDefaultMiddleware) =>

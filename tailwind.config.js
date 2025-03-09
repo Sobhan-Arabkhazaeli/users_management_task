@@ -12,6 +12,8 @@ export default {
         zinc: "var(--color-zinc)",
         purple: "var(--color-purple)",
         menu: "var(--color-menu)",
+        bgCard : "var(--color-bgCard)",
+        whiteGrayLish : "var(--color-whiteGrayLish)",
       },
     },
   },

@@ -3,15 +3,23 @@ import LogoImage from "../../../assets/shardi.png";
 import Handler from "./components/handler";
 import Menu from "./components/menu";
 
-
 const Sidebar = () => {
   return (
     <Handler>
-      <Link to={"/"} className="flex items-center gap-2 py-3  text-2xl">
+      <Link
+        to={"/"}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          paddingTop: "12px",
+          paddingBottom: "12px",
+        }}
+      >
         <img
           src={LogoImage}
-          aria-label="logo png"
-          className=" !w-36"
+          alt="logo png"
+          style={{ width: "144px", borderRadius: "8px" }}
         />
       </Link>
       <Menu />

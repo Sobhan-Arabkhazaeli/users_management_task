@@ -1,14 +1,17 @@
 import { Outlet } from "react-router-dom";
 import { Header, Sidebar } from "../partials";
+import { Box, CssBaseline } from "@mui/material";
 
 const MainLayout = () => {
   return (
     <>
+      <CssBaseline />
       <Header />
-      <div className="flex ">
+      <Box sx={{ display: "flex" }}>
         <Sidebar />
+        {/* Main Content */}
         <Outlet />
-      </div>
+      </Box>
     </>
   );
 };
