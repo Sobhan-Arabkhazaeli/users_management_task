@@ -2,7 +2,7 @@ import { FC } from "react";
 import { TUserDetails } from "../../../core/types/common/user.type";
 import FavoriteBtn from "../favorite-button";
 import ImageFallBack from "../image-fallback";
-import fallback from "../../../assets/user.jpg";
+import darkFallback from "../../../assets/user-circle-icon.png";
 import { Box } from "@mui/material";
 
 // Indexed Access Types from TUserDetails
@@ -10,15 +10,14 @@ type idType = TUserDetails["id"];
 type avatarType = TUserDetails["avatar"];
 type isFavoriteType = TUserDetails["isFavorite"];
 
-
 interface IProps {
   id: idType;
   avatar: avatarType;
   isFavorite: isFavoriteType;
-  toggleFavorite: (id : idType) => void;
+  toggleFavorite: (id: idType) => void;
 }
 
-const CardHeader: FC<IProps> = ({ id, toggleFavorite }) => {
+const CardHeader: FC<IProps> = ({ id, toggleFavorite, avatar }) => {
   return (
     <Box>
       {/* Favorite Button positioned at top-left */}
@@ -43,9 +42,9 @@ const CardHeader: FC<IProps> = ({ id, toggleFavorite }) => {
         }}
       >
         <ImageFallBack
-          src={fallback}
+          src={avatar}
           alt="user img"
-          fallback={fallback}
+          fallback={darkFallback}
           sx={{
             height: 80,
             width: 80,
