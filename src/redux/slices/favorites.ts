@@ -13,7 +13,7 @@ const favoritesSlice = createSlice({
       state.favoritesList = [...state.favoritesList, action.payload];
     },
     // Handle for removing a user from the favorites list
-    removeFromFavorites: (state: TPayload, action: { payload: number }) => {
+    removeFromFavorites: (state: TPayload, action: { payload: number | undefined }) => {
       state.favoritesList = state.favoritesList.filter(
         (obj) => obj?.id !== action.payload
       );
@@ -26,5 +26,5 @@ export type TFavoriteSelector = {
   [x: string]: any;
   favoriteSlice: TPayload;
 };
-export const { addToFavorites } = favoritesSlice.actions;
+export const { addToFavorites ,removeFromFavorites } = favoritesSlice.actions;
 export default favoritesSlice.reducer;

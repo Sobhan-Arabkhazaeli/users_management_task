@@ -13,14 +13,15 @@ interface IProps {
   id: idType;
   avatar: avatarType;
   isFavorite: isFavoriteType;
+  toggleFavorite : ()=> void;
 }
 
-const CardHeader: FC<IProps> = () => {
+const CardHeader: FC<IProps> = ({ id, toggleFavorite}) => {
   // console.log(avatar)
   return (
     <div>
       <div className="absolute left-2 top-2 bg-main p-1 rounded-md">
-        <FavoriteBtn />
+        <FavoriteBtn id={id} toggleFavorite={toggleFavorite}/>
       </div>
       <div className="mx-auto w-fit">
         <ImageFallBack

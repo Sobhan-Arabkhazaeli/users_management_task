@@ -1,5 +1,5 @@
 type TUser = {
-  id: number | string;
+  id: number ;
   name: string;
   createdAt: string;
   avatar: string;

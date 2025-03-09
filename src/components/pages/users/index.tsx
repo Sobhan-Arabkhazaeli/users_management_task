@@ -8,17 +8,17 @@ import {
 import { IUsersParams } from "../../../core/types/common/users.params.interface";
 import WrapperCards from "../../common/wrapper-cards";
 import SectionTop_Content from "../../common/section-top-content";
-import { useDeferredValue, useEffect, useState } from "react";
+import { useDeferredValue, useEffect,useState } from "react";
 import PaginationSection from "../../common/pageination";
 import SearchInput from "../../common/section-top-content/SearchInput";
 import SortSelect from "../../common/section-top-content/SortSelect";
 import RowsOfPageSelect from "../../common/section-top-content/RowsOfPageSelect";
 import { Box } from "@mui/material";
-
 const UsersWrapper = () => {
   const usersParams = useSelector<TUserParamsSelector, IUsersParams>(
     (state) => state.UsersParams
   );
+
   const [totalPages, setTotalPages] = useState<number>(1);
   const Dispatch = useDispatch();
 
