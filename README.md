@@ -131,12 +131,16 @@ npm run start
 
 ### Project Structure Overview 🗺️  
 
-*   **`src/api`**: This directory contains the API endpoints created with RTK Query.  
-*   **`src/components`**: Reusable UI components like UserCard, SearchBar, and FavoritesButton are located in this directory.  
-*   **`src/features`**: This is where Redux slices reside. The `favoritesSlice` is responsible for managing the favorites list.  
-*   **`src/app`**: Files related to Redux store configuration and Redux Persist are located in this directory.  
-*   **`src/pages`**: Page-level components, such as UserList, are placed here.  
-*   **`src/theme.js`**: The Material-UI theme settings (colors, fonts, etc.) are in this file.  
+*   `.`: The root directory of the project.  
+*   `src/`: The main directory for the project's source code.  
+    *   `api/`: Contains the API endpoints created with RTK Query.  
+    *   `components/`: Houses reusable UI components such as `UserCard`, `SearchBar`, and `FavoritesButton`.  
+    *   `features/`: This is where Redux slices reside. The `favoritesSlice` is responsible for managing the favorites list. (Not found in the previous tree structure; may have a different name or be located within another directory.)  
+    *   `app/`: Contains files related to Redux store configuration and Redux Persist (likely includes files related to `store.ts` and persist configurations).  
+    *   `pages/`: Page-level components, such as `UserList`, are located here (likely within the `src/components/pages/` directory).  
+    *   `theme.js`: Holds the Material-UI theme settings (colors, fonts, etc.). (Not found in the previous tree structure; may have a different name or be located within another directory.)  
+*   `public/`: Contains static files, such as `vite.svg`.  
+*   Configuration files: Includes `package.json`, `vite-env.d.ts`, `.eslint.config.js`, `index.html`, `postcss.config.js`, `tsconfig.app.json`, `.gitignore`, and `README.md`.  
 
 ## Key Features ✨  
 
