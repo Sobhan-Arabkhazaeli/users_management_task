@@ -1,6 +1,6 @@
-# React User List with Favorites ✨  
+# (Shardi) Test Task  ✨  
 
-This project fetches and displays a list of users from an API. Users are searchable, and they can be added to a favorites list. Favorite user information is stored in LocalStorage so it persists across page refreshes.  
+This project is an entrance exam for the Shardi team, the task involves fetching and displaying a list of users from an API. Users are searchable and can be added to a favorites list. Favorite user information is stored in LocalStorage, so it persists across page refreshes.  
 
 ## Installation 🛠️  
 
