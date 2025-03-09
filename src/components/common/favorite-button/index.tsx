@@ -1,5 +1,5 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { TUserDetails } from "../../../core/types/common/user.type";
 import { useSelector } from "react-redux";
 import { TFavoriteSelector } from "../../../redux/slices/favorites";
