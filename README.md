@@ -13,7 +13,7 @@ This project is an entrance exam for the Shardi team, the task involves fetching
 2.  Navigate to the project directory:  
 
     ```bash  
-    cd https://github.com/Sobhan-Arabkhazaeli/users_management_task 
+    cd YOUR FILE
     ```  
 
 3.  Install Dependencies:  
