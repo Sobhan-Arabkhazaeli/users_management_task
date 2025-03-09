@@ -29,7 +29,7 @@ function App() {
         }}
       >
         <ReactRouterProvider router={AppRouter} />
-        <ToastAlert/>
+        <ToastAlert />
       </Box>
     </ThemeProvider>
   );
