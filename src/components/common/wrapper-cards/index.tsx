@@ -12,7 +12,7 @@ interface IProp {
 
 const WrapperCards: FC<IProp> = ({ usersData, isLoading, isError }) => {
   // Rendering state before loading and when isLoading is executed
-  if (isLoading) {
+  if (isLoading || usersData === undefined) {
     return (
       <div className="flex gap-5 flex-wrap justify-around">
         {[...Array(10)].map((_, index) => (

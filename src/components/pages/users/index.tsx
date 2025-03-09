@@ -10,6 +10,10 @@ import WrapperCards from "../../common/wrapper-cards";
 import SectionTop_Content from "../../common/section-top-content";
 import { useDeferredValue, useEffect, useState } from "react";
 import PaginationSection from "../../common/pageination";
+import SearchInput from "../../common/section-top-content/SearchInput";
+import SortSelect from "../../common/section-top-content/SortSelect";
+import RowsOfPageSelect from "../../common/section-top-content/RowsOfPageSelect";
+import { Box } from "@mui/material";
 
 const UsersWrapper = () => {
   const usersParams = useSelector<TUserParamsSelector, IUsersParams>(
@@ -36,35 +40,54 @@ const UsersWrapper = () => {
 
   const performSearch = (searchTerm: string) => {
     // Update state with search results
-    console.log(searchTerm);
     Dispatch(handleUsersSearch(searchTerm));
   };
 
   // Calculate the number of pages
   useEffect(() => {
-    console.log(data?.length)
-    console.log(usersParams?.limit)
-
     if (dataWithoutParams && usersParams.limit) {
-      setTotalPages(Math.ceil(dataWithoutParams?.length / usersParams?.limit));
+      setTotalPages(
+        Math.ceil(dataWithoutParams?.length / Number(usersParams?.limit))
+      );
     }
   }, [dataWithoutParams?.length, usersParams.limit]);
 
   return (
-    <div className="w-full flex flex-col gap-y-8 lg:ml-36 p-5">
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        rowGap: 4,
+        p: 2.5,
+      }}
+    >
       <TitleSection
         title="People"
         number={AllIsSuccess ? dataWithoutParams?.length : 0}
       />
-      <SectionTop_Content setSearch={setSearchTerm} />
+      <SectionTop_Content>
+        <SearchInput setSearch={setSearchTerm} />
+        <Box
+          sx={{
+            display: "flex",
+            gap: 1,
+            mx: { xs: "auto", md: 0 },
+            mt: { xs: 2, md: 0 },
+          }}
+        >
+          <SortSelect />
+          <RowsOfPageSelect />
+        </Box>
+      </SectionTop_Content>
       <WrapperCards
         usersData={data}
         isLoading={isLoading}
         isSuccess={isSuccess}
         isError={isError}
       />
-      <PaginationSection page={usersParams.page} totalPages={totalPages}/>
-    </div>
+      <PaginationSection page={usersParams.page} totalPages={totalPages} />
+    </Box>
   );
 };
 

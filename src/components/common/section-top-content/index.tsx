@@ -1,16 +1,27 @@
-import { FC } from "react";
-import SearchInput from "./SearchInput"
+import { Box } from '@mui/material';  
+import { styled } from '@mui/system';  
+import IChildren from "../../../core/types/common/children.interface";  
+import TFCChildren from "../../../core/types/props/fc-children.type";  
 
-export  interface IPropsSearch {
-  setSearch : React.Dispatch<React.SetStateAction<string>>;
-}
+export interface IPropsSearch {  
+  children: IChildren;  
+}  
 
-const SectionTop_Content:FC<IPropsSearch> = ({setSearch}) => {
-  return (
-    <div className="p-3 bg-menu flex justify-between items-center">
-        <SearchInput setSearch={setSearch}/>
-    </div>
-  )
-}
+const StyledBox = styled(Box)(({ theme }) => ({  
+  padding: theme.spacing(3),
+  backgroundColor: theme.palette.menu.main,  
+  display: 'flex',  
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
+  alignItems: 'center', 
+}));  
 
-export default SectionTop_Content
+const SectionTop_Content: TFCChildren = ({ children }) => {  
+  return (  
+    <StyledBox>  
+      {children}  
+    </StyledBox>  
+  );  
+};  
+
+export default SectionTop_Content;  

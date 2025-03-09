@@ -3,9 +3,9 @@ import { IUsersParams } from "../../core/types/common/users.params.interface";
 
 const initialState: IUsersParams = {
   search: undefined,
-  sortBy: null,
+  sortBy: undefined,
   page: 1,
-  limit: 10,
+  limit: "10",
 };
 
 // Getting the IUsersParams property type individually with Indexed Access Types

@@ -4,7 +4,7 @@ import { handleUsersPage } from "../../../redux/slices/users-params";
 import { FC } from "react";
 
 interface IProps {
-  page: number;
+  page: number | undefined;
   totalPages: number | undefined;
 }
 

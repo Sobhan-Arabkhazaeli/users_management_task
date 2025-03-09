@@ -1,22 +1,52 @@
 import { useDispatch, useSelector } from "react-redux";
 import TFCChildren from "../../../../core/types/props/fc-children.type";
 import { toggleSidebar, TThemeSelector } from "../../../../redux/slices/menu";
+import { Box, Drawer} from "@mui/material";
 
 const Handler: TFCChildren = ({ children }) => {
   const dispatch = useDispatch();
-  const sidebar = useSelector<TThemeSelector>(
-    (state) => state.sideBarMenu.sideBar
-  );
+  const sidebar = useSelector<TThemeSelector, boolean>((state) => state.sideBarMenu.sideBar);
+
   return (
-    <div
-      className={`${sidebar ? "w-full h-screen fixed" : "!w-0"}  z-50   bg-black/30 lg:relative lg:w-auto`}
-      onClick={() => dispatch(toggleSidebar(false))}>
-      <div
-        onClick={() => dispatch(toggleSidebar(true))}
-        className={`${sidebar ? "w-48 px-4 top-0  fixed bg-menu" : "w-0 !p-0"} flex  flex-col items-center overflow-hidden transition-all  lg:w-36 lg:!px-4 ltr:left-0 rtl:right-0`}>
+    <Box
+      sx={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 50,
+        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        display: sidebar ? 'block' : 'none', 
+      }}
+      onClick={() => dispatch(toggleSidebar(false))}
+    >
+      <Drawer
+        variant="temporary"
+        anchor="left"
+        open={sidebar}
+        onClose={() => dispatch(toggleSidebar(false))}
+        sx={{
+          width: sidebar ? 192 : 0,
+          paddingLeft: sidebar ? 4 : 0, 
+          paddingRight: sidebar ? 4 : 0,
+          transition: 'width 0.3s, padding 0.3s',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          backgroundColor: 'menu.main',
+          '& .MuiDrawer-paper': {
+            width: sidebar ? 192 : 0,
+            paddingLeft: sidebar ? 4 : 0,
+            paddingRight: sidebar ? 4 : 0,
+            transition: 'width 0.3s, padding 0.3s',
+          },
+        }}
+      >
         {children}
-      </div>
-    </div>
+      </Drawer>
+    </Box>
   );
 };
 
