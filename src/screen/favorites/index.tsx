@@ -1,7 +1,10 @@
+import FavoriteWrapper from "../../components/pages/favorites"
 
 const Favorites = () => {
   return (
-    <div>Favorites</div>
+    <>
+    <FavoriteWrapper />
+    </>
   )
 }
 

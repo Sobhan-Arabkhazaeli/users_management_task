@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFetchUserQuery } from "../../../core/services/api/GetAllUsers";
 import TitleSection from "../../common/title-section";
 import {
+  handleUsersPage,
   handleUsersSearch,
   TUserParamsSelector,
 } from "../../../redux/slices/users-params";
@@ -52,6 +53,11 @@ const UsersWrapper = () => {
     }
   }, [dataWithoutParams?.length, usersParams.limit]);
 
+  // Handle sending the number of pages to the API
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    Dispatch(handleUsersPage(value));
+  };
+
   return (
     <Box
       sx={{
@@ -86,7 +92,7 @@ const UsersWrapper = () => {
         isSuccess={isSuccess}
         isError={isError}
       />
-      <PaginationSection page={usersParams.page} totalPages={totalPages} />
+      <PaginationSection page={usersParams.page} totalPages={totalPages} handlePageChange={handlePageChange}/>
     </Box>
   );
 };

@@ -17,9 +17,6 @@ interface IProps {
 }
 
 const CardHeader: FC<IProps> = ({ id, toggleFavorite}) => {
-  
-
-
 
   return (
     <div>

@@ -46,7 +46,7 @@ const WrapperCards: FC<IProp> = ({ usersData, isLoading, isError }) => {
         ))}
       </div>
     );
-  } else if (isError) {
+  } else if (isError || usersData.length == 0) {
     // Rendering state when data is undefined or there are 0 items
     return <h1>User not found</h1>;
   } else if (usersData !== undefined && usersData?.length !== 0) {
