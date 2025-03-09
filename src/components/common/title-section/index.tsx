@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Typography } from "@mui/material";
 
 interface IProps {
   title: string;
@@ -7,9 +8,17 @@ interface IProps {
 
 const TitleSection: FC<IProps> = ({ title, number }) => {
   return (
-    <h1 className="text-3xl font-extrabold text-Navy">
-      {title} <span className="text-gray-400"> {number}</span>{" "}
-    </h1>
+    <Typography
+      variant="h3"
+      component="h1"
+      sx={{
+        fontWeight: 800,
+        color: "#150a4f",
+        fontSize: { xs: "1.5rem", sm: "1.875rem" },
+      }}
+    >
+      {title} <span style={{ color: "#9CA3AF" }}>{number}</span>
+    </Typography>
   );
 };
 

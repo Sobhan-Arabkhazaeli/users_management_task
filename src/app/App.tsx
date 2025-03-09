@@ -8,6 +8,7 @@ import {
   lightTheme,
 } from "../config/matrialTheme_config/matrialTheme.config";
 import { TThemeSelector } from "../redux/slices/menu";
+import ToastAlert from "../components/common/toast-alert/ToastAlert";
 
 function App() {
   const themeMode = useSelector<TThemeSelector>(
@@ -28,6 +29,7 @@ function App() {
         }}
       >
         <ReactRouterProvider router={AppRouter} />
+        <ToastAlert />
       </Box>
     </ThemeProvider>
   );

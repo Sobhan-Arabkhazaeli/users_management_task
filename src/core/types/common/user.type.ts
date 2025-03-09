@@ -1,7 +1,9 @@
-export type TUserDetails = {
-  id?: number | string;
-  name?: string;
-  createdAt?: string;
-  avatar?: string;
-  isFavorite?: boolean;
+type TUser = {
+  id: number ;
+  name: string;
+  createdAt: string;
+  avatar: string;
+  isFavorite: boolean;
 };
+
+export type TUserDetails = Partial<TUser> ;

@@ -15,7 +15,7 @@ const SortSelect = () => {
     (state) => state.UsersParams
   );
   const Dispatch = useDispatch();
-
+  // Sending a title based on that sort
   const handleChange = (event: SelectChangeEvent) => {
     Dispatch(handleSortBy(event.target.value));
   };

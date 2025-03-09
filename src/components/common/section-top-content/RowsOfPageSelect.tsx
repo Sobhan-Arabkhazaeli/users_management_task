@@ -16,6 +16,7 @@ const RowsOfPageSelect = () => {
   );
   const Dispatch = useDispatch();
 
+  // Sending rowsOf page to the api
   const handleChange = (event: SelectChangeEvent) => {
     Dispatch(handleLimit(event.target.value));
   };

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useFetchUserQuery } from "../../../core/services/api/GetAllUsers";
 import TitleSection from "../../common/title-section";
 import {
+  handleUsersPage,
   handleUsersSearch,
   TUserParamsSelector,
 } from "../../../redux/slices/users-params";
@@ -14,11 +15,12 @@ import SearchInput from "../../common/section-top-content/SearchInput";
 import SortSelect from "../../common/section-top-content/SortSelect";
 import RowsOfPageSelect from "../../common/section-top-content/RowsOfPageSelect";
 import { Box } from "@mui/material";
-
 const UsersWrapper = () => {
   const usersParams = useSelector<TUserParamsSelector, IUsersParams>(
     (state) => state.UsersParams
   );
+
+  // States
   const [totalPages, setTotalPages] = useState<number>(1);
   const Dispatch = useDispatch();
 
@@ -52,6 +54,14 @@ const UsersWrapper = () => {
     }
   }, [dataWithoutParams?.length, usersParams.limit]);
 
+  // Handle sending the number of pages to the API
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
+    Dispatch(handleUsersPage(value));
+  };
+
   return (
     <Box
       sx={{
@@ -60,6 +70,10 @@ const UsersWrapper = () => {
         flexDirection: "column",
         rowGap: 4,
         p: 2.5,
+        marginLeft : "150px",
+        '@media (max-width:1200px)': {  
+          marginLeft: '0 !important',  
+        },  
       }}
     >
       <TitleSection
@@ -86,7 +100,11 @@ const UsersWrapper = () => {
         isSuccess={isSuccess}
         isError={isError}
       />
-      <PaginationSection page={usersParams.page} totalPages={totalPages} />
+      <PaginationSection
+        page={usersParams.page}
+        totalPages={totalPages}
+        handlePageChange={handlePageChange}
+      />
     </Box>
   );
 };
