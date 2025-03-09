@@ -1,54 +1,80 @@
-# React + TypeScript + Vite
+React User List with Favorites ✨
+This project fetches and displays a list of users from an API. Users are searchable, and they can be added to a favorites list. Favorite user information is stored in LocalStorage so it persists across page refreshes.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Installation 🛠️
+Clone the repository:
 
-Currently, two official plugins are available:
+bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git  
+Navigate to the project directory:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+bash
+cd YOUR_REPOSITORY  
+Install Dependencies:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+bash
+npm install  # or yarn install or pnpm install  
+Available Scripts 📜
+npm start: Runs the project in development mode (http://localhost:3000).
+npm run build: Creates a production build of the project.
+npm test: Runs the project's tests.
+npm run eject: Ejects the create-react-app configuration (not recommended unless absolutely necessary).
+Project Structure 📂
+graphql
+react-user-list/  
+├── src/  
+│   ├── api/                  # RTK Query API endpoints  
+│   ├── components/           # UI Components  
+│   │   ├── UserCard.jsx      # User Card Component  
+│   │   ├── SearchBar.jsx     # Search Bar Component  
+│   │   └── FavoritesButton.jsx # Button to add/remove from favorites  
+│   ├── features/             # Redux features (slices)  
+│   │   └── favoritesSlice.js # Redux slice for managing favorites  
+│   ├── app/                  # Redux store configuration  
+│   │   ├── store.js          # Redux store  
+│   │   └── persistor.js      # Redux Persist configuration  
+│   ├── pages/                # Pages  
+│   │   └── UserList.jsx      # Main User List Page  
+│   ├── App.jsx               # Main App Component  
+│   ├── index.js              # Entry point  
+│   ├── theme.js              # Material-UI Theme Configuration  
+│   └── ...  
+├── public/                 # Static assets  
+├── README.md               # Readme file  
+├── package.json            # Project dependencies  
+└── ...  
+Project Structure Overview 🗺️
+src/api: This directory contains the API endpoints created with RTK Query.
+src/components: Reusable UI components like UserCard, SearchBar, and FavoritesButton are located in this directory.
+src/features: This is where Redux slices reside. The favoritesSlice is responsible for managing the favorites list.
+src/app: Files related to Redux store configuration and Redux Persist are located in this directory.
+src/pages: Page-level components, such as UserList, are placed here.
+src/theme.js: The Material-UI theme settings (colors, fonts, etc.) are in this file.
+Key Features ✨
+User List Display: Displays a list of users fetched from an API.
+Search Functionality: Enables searching within the user list, utilizing debouncing for optimization.
+Favorites Management: Allows users to add and remove users from their favorites list.
+Persistent Data: Stores favorites information in LocalStorage using Redux Persist.
+Material-UI (MUI): Uses MUI to design a beautiful and user-friendly interface.
+RTK Query: Leverages RTK Query to manage API requests and cache data.
+Redux Toolkit: Employs Redux Toolkit for structured state management.
+Extra Works ➕
+Image Fallback: Displays a fallback image if a user's image fails to load from the API.
+Custom Components: Uses custom components to enhance code readability and maintainability.
+Debouncing Search: Implements debouncing in the search filter to prevent excessive API requests and improve performance.
+Code Commenting: Includes thorough commenting in the code to enhance readability and understanding.
+Skeleton Loading: Uses skeleton loading to display loading states and improve UX.
+Material-UI Theme Configuration: Configures project colors in the Material-UI theme for visual consistency.
+Fully Responsive: Designed to be fully responsive, ensuring correct display on various devices.
+My Tasks ✅
+Tasks: 1, 2, 3, 4
+Managed application state using Redux Toolkit and Redux Persist.
+Fetched data from the API using RTK Query and displayed the user list with search functionality.
+Managed favorites and stored the information in LocalStorage.
+Designed the user interface with Material-UI (MUI).
+Technologies Used 💻
+React.js 19: JavaScript framework for building user interfaces.
+Redux Toolkit: State management library with helpful utilities.
+Redux Persist: Library for persisting state to LocalStorage.
+RTK Query: Powerful tool for managing API requests.
+Material-UI (MUI): React component library for UI design.
