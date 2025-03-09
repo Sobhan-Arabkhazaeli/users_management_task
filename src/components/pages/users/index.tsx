@@ -9,7 +9,7 @@ import {
 import { IUsersParams } from "../../../core/types/common/users.params.interface";
 import WrapperCards from "../../common/wrapper-cards";
 import SectionTop_Content from "../../common/section-top-content";
-import { useDeferredValue, useEffect,useState } from "react";
+import { useDeferredValue, useEffect, useState } from "react";
 import PaginationSection from "../../common/pageination";
 import SearchInput from "../../common/section-top-content/SearchInput";
 import SortSelect from "../../common/section-top-content/SortSelect";
@@ -20,6 +20,7 @@ const UsersWrapper = () => {
     (state) => state.UsersParams
   );
 
+  // States
   const [totalPages, setTotalPages] = useState<number>(1);
   const Dispatch = useDispatch();
 
@@ -54,7 +55,10 @@ const UsersWrapper = () => {
   }, [dataWithoutParams?.length, usersParams.limit]);
 
   // Handle sending the number of pages to the API
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
     Dispatch(handleUsersPage(value));
   };
 
@@ -66,6 +70,10 @@ const UsersWrapper = () => {
         flexDirection: "column",
         rowGap: 4,
         p: 2.5,
+        marginLeft : "150px",
+        '@media (max-width:1200px)': {  
+          marginLeft: '0 !important',  
+        },  
       }}
     >
       <TitleSection
@@ -92,7 +100,11 @@ const UsersWrapper = () => {
         isSuccess={isSuccess}
         isError={isError}
       />
-      <PaginationSection page={usersParams.page} totalPages={totalPages} handlePageChange={handlePageChange}/>
+      <PaginationSection
+        page={usersParams.page}
+        totalPages={totalPages}
+        handlePageChange={handlePageChange}
+      />
     </Box>
   );
 };

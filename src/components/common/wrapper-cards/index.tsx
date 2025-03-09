@@ -8,6 +8,7 @@ import {
   removeFromFavorites,
   TFavoriteSelector,
 } from "../../../redux/slices/favorites";
+import { Box, Typography } from "@mui/material";
 
 interface IProp {
   usersData: TUserDetails[] | undefined;
@@ -23,46 +24,52 @@ const WrapperCards: FC<IProp> = ({ usersData, isLoading, isError }) => {
   );
   const Dispatch = useDispatch();
 
-  // Handle the function of removing or adding a user to the user's favorites list
+  // Handle toggling a user in/out of favorites
   const toggleFavoriteItem = useMemo(() => {
     return (id: idType) => {
-      const item = usersData?.find((item) => item.id == id);
-      const existItem = FavoriteList?.find((item) => item.id == id);
+      const item = usersData?.find((item) => item.id === id);
+      const existItem = FavoriteList?.find((item) => item.id === id);
       if (item) {
         if (existItem) {
           Dispatch(removeFromFavorites(id));
-        } else Dispatch(addToFavorites(item));
+        } else {
+          Dispatch(addToFavorites(item));
+        }
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [FavoriteList, usersData]);
 
-  // Rendering state before loading and when isLoading is executed
+  const containerStyles = {
+    display: "flex",
+    gap: 2.5,
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  };
+
   if (isLoading || usersData === undefined) {
     return (
-      <div className="flex gap-5 flex-wrap justify-around">
+      <Box sx={containerStyles}>
         {[...Array(10)].map((_, index) => (
           <UserCard_Skeleton key={index} />
         ))}
-      </div>
+      </Box>
     );
-  } else if (isError || usersData.length == 0) {
-    // Rendering state when data is undefined or there are 0 items
-    return <h1>User not found</h1>;
-  } else if (usersData !== undefined && usersData?.length !== 0) {
+  } else if (isError || usersData.length === 0) {
+    return <Typography component="h1">User not found</Typography>;
+  } else if (usersData !== undefined && usersData.length !== 0) {
     return (
-      <div className="flex gap-5 flex-wrap justify-around">
-        {usersData?.map((item) => (
+      <Box sx={containerStyles}>
+        {usersData.map((item) => (
           <UserCard
             key={item.id}
             toggleFavorite={toggleFavoriteItem}
             item={item}
           />
         ))}
-      </div>
+      </Box>
     );
   } else {
-    return <h1>User not found</h1>;
+    return <Typography component="h1">User not found</Typography>;
   }
 };
 

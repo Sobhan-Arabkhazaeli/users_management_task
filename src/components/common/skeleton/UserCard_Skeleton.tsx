@@ -2,9 +2,15 @@ import { Avatar, Box, Skeleton, Typography } from "@mui/material";
 
 const UserCard_Skeleton = () => {
   return (
-    <div className="w-56 h-64 p-6">
+    <Box
+      sx={{
+        width: 224,
+        height: 256,
+        p: 3,
+      }}
+    >
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Box sx={{ margin: 1 }}>
+        <Box sx={{ m: 1 }}>
           <Skeleton variant="circular">
             <Avatar />
           </Skeleton>
@@ -16,9 +22,9 @@ const UserCard_Skeleton = () => {
         </Box>
       </Box>
       <Skeleton variant="rectangular" width="100%">
-        <div style={{ paddingTop: "57%" }} />
+        <Box sx={{ pt: "57%" }} />
       </Skeleton>
-    </div>
+    </Box>
   );
 };
 

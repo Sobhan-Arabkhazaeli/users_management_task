@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { TUserDetails } from "../../../core/types/common/user.type";
 import CardBody from "./CardBody";
 import CardHeader from "./CardHeader";
+import { Box } from "@mui/material";
 
 interface IProps {
   item: TUserDetails;
@@ -9,10 +10,27 @@ interface IProps {
 }
 
 const UserCard: FC<IProps> = ({ item, toggleFavorite }) => {
-  // Destructoring
+  // Destructuring the user properties
   const { id, avatar, isFavorite, name, createdAt } = item;
   return (
-    <div className="w-56 h-64 p-6 relative bg-gradient-to-r from-menu to-bgCard rounded-xl hover:to-whiteGrayLish hover:from-whiteGrayLish shadow-sm hover:shadow-xl hover:scale-105 duration-300 cursor-pointer">
+    <Box
+      sx={(theme) => ({
+        width: 224, 
+        height: 256,
+        p: 3, 
+        position: "relative",
+        background: `linear-gradient(to right, ${theme.palette.menu.main}, ${theme.palette.bgCard.main})`,
+        borderRadius: "0.75rem", 
+        boxShadow: theme.shadows[1], 
+        cursor: "pointer",
+        transition: "all 300ms ease", 
+        "&:hover": {
+          background: `linear-gradient(to right, ${theme.palette.whiteGraylish.main}, ${theme.palette.whiteGraylish.main})`,
+          boxShadow: theme.shadows[6], 
+          transform: "scale(1.05)", 
+        },
+      })}
+    >
       <CardHeader
         id={id}
         avatar={avatar}
@@ -25,7 +43,7 @@ const UserCard: FC<IProps> = ({ item, toggleFavorite }) => {
         createdAt={createdAt}
         isFavorite={isFavorite}
       />
-    </div>
+    </Box>
   );
 };
 

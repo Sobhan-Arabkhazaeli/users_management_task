@@ -15,7 +15,6 @@ const SearchInput: FC<IProps> = ({ setSearch }) => {
           p: "2px 4px",
           display: "flex",
           alignItems: "center",
-          width: 400,
         }}
       >
         <InputBase

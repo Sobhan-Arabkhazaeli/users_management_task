@@ -3,8 +3,9 @@ import { TUserDetails } from "../../../core/types/common/user.type";
 import FavoriteBtn from "../favorite-button";
 import ImageFallBack from "../image-fallback";
 import fallback from "../../../assets/user.jpg";
+import { Box } from "@mui/material";
 
-// Getting the IUsersParams property type individually with Indexed Access Types
+// Indexed Access Types from TUserDetails
 type idType = TUserDetails["id"];
 type avatarType = TUserDetails["avatar"];
 type isFavoriteType = TUserDetails["isFavorite"];
@@ -13,25 +14,46 @@ interface IProps {
   id: idType;
   avatar: avatarType;
   isFavorite: isFavoriteType;
-  toggleFavorite : ()=> void;
+  toggleFavorite: () => void;
 }
 
-const CardHeader: FC<IProps> = ({ id, toggleFavorite}) => {
-
+const CardHeader: FC<IProps> = ({ id, toggleFavorite }) => {
   return (
-    <div>
-      <div className="absolute left-2 top-2 bg-main p-1 rounded-md">
-        <FavoriteBtn id={id} toggleFavorite={toggleFavorite}/>
-      </div>
-      <div className="mx-auto w-fit">
+    <Box>
+      {/* Favorite Button positioned at top-left */}
+      <Box
+        sx={(theme) => ({
+          position: "absolute",
+          left: "8px",
+          top: "8px",
+          backgroundColor: theme.palette.primary.main,
+          padding: "4px",
+          borderRadius: "0.375rem",
+        })}
+      >
+        <FavoriteBtn id={id} toggleFavorite={toggleFavorite} />
+      </Box>
+
+      {/* Centered Image */}
+      <Box
+        sx={{
+          mx: "auto",
+          width: "fit-content",
+        }}
+      >
         <ImageFallBack
           src={fallback}
-          alt={"user img"}
+          alt="user img"
           fallback={fallback}
-          ClassName="h-20 w-20 rounded-full inline-block"
+          sx={{
+            height: 80,
+            width: 80,
+            borderRadius: "50%",
+            display: "inline-block",
+          }}
         />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

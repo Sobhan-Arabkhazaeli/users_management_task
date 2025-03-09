@@ -1,28 +1,25 @@
-import { ComponentProps, FC } from "react";
+import React, { FC, useState } from "react";
+import { Box, SxProps } from "@mui/material";
+import { Theme } from "@mui/material/styles";
 
-type TimageFallback = ComponentProps<"img"> & {
+interface TImageFallbackProps {
   src: string | undefined;
   alt: string;
   fallback: string;
-  ClassName? : string;
-};
+  sx?: SxProps<Theme>;
+}
 
-const ImageFallBack: FC<TimageFallback> = ({ src, alt, fallback , ClassName }) => {
-  console.log(src)
-
-  if (src == null || src == "" || src == undefined) {
-    src = fallback;
-  }
+const ImageFallBack: FC<TImageFallbackProps> = ({ src, alt, fallback, sx }) => {
+  // Use the fallback if src is null, empty, or undefined.
+  const [imgSrc, setImgSrc] = useState(src && src !== "" ? src : fallback);
 
   return (
-    <img
-    className={ClassName}
-      src={src}
+    <Box
+      component="img"
+      src={imgSrc}
       alt={alt}
-      onError={() => {
-        return (src = fallback);
-      }}
-
+      sx={sx}
+      onError={() => setImgSrc(fallback)}
     />
   );
 };
