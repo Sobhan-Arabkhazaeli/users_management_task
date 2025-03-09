@@ -7,13 +7,13 @@ This project fetches and displays a list of users from an API. Users are searcha
 1.  Clone the repository:  
 
     ```bash  
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git  
+    git clone https://github.com/Sobhan-Arabkhazaeli/users_management_task
     ```  
 
 2.  Navigate to the project directory:  
 
     ```bash  
-    cd YOUR_REPOSITORY  
+    cd https://github.com/Sobhan-Arabkhazaeli/users_management_task 
     ```  
 
 3.  Install Dependencies:  
@@ -24,13 +24,109 @@ This project fetches and displays a list of users from an API. Users are searcha
 
 ## Available Scripts 📜  
 
-*   `npm start`: Runs the project in development mode (http://localhost:3000).  
-*   `npm run build`: Creates a production build of the project.  
-*   `npm test`: Runs the project's tests.  
-*   `npm run eject`: Ejects the create-react-app configuration (not recommended unless absolutely necessary).  
+ To install the project dependencies, run:
+npm install
+
+In the project directory, you can run:
+npm run start
 
 ## Project Structure 📂  
-
+.  
+├── .gitignore  
+├── README.md  
+├── index.html  
+├── package-lock.json  
+├── package.json  
+├── postcss.config.js  
+├── tsconfig.app.json  
+├── vite-env.d.ts  
+├── .eslint.config.js  
+├── public  
+│   └── vite.svg  
+├── src  
+│   ├── app  
+│   │   ├── App.tsx  
+│   │   └── AppProvider.tsx  
+│   ├── app-router  
+│   │   └── index.tsx  
+│   ├── assets  
+│   │   ├── fonts  
+│   │   │   └── NeometricAlt-Medium.ttf  
+│   │   ├── react.svg  
+│   │   ├── shardi.png  
+│   │   └── user.jpg  
+│   ├── components  
+│   │   ├── common  
+│   │   │   ├── favorite-button  
+│   │   │   ├── image-fallback  
+│   │   │   ├── index.tsx  
+│   │   │   ├── pagination  
+│   │   │   ├── RowsOfPageSelect.tsx  
+│   │   │   ├── SearchInput.tsx  
+│   │   │   └── SortSelect.tsx  
+│   │   ├── layouts  
+│   │   │   └── index.tsx  
+│   │   ├── pages  
+│   │   │   ├── favorites  
+│   │   │   │   └── index.tsx  
+│   │   │   └── users  
+│   │   │       └── index.tsx  
+│   │   ├── partials  
+│   │   │   ├── header  
+│   │   │   │   └── index.tsx  
+│   │   │   ├── sidebar  
+│   │   │   │   ├── components  
+│   │   │   │   │   └── index.tsx  
+│   │   │   │   └── index.tsx  
+│   │   │   └── config\matrialTheme_config  
+│   │   │       └── matrialTheme.config.ts  
+│   │   ├── redux  
+│   │   │   ├── slices  
+│   │   │   │   ├── favorites.ts  
+│   │   │   │   ├── menu.ts  
+│   │   │   │   ├── theme.ts  
+│   │   │   │   ├── users-params.ts  
+│   │   │   │   └── store.ts  
+│   │   ├── screen  
+│   │   │   ├── favorites  
+│   │   │   │   └── index.tsx  
+│   │   │   └── users  
+│   │   │       └── index.tsx  
+│   │   ├── skeleton  
+│   │   │   └── UserCard_Skeleton.tsx  
+│   │   ├── tab  
+│   │   │   └── index.tsx  
+│   │   ├── theme-switcher  
+│   │   │   └── index.tsx  
+│   │   ├── title-section  
+│   │   │   └── index.tsx  
+│   │   ├── toast-alert  
+│   │   │   └── index.tsx  
+│   │   ├── toggle-sidebar  
+│   │   │   └── index.tsx  
+│   │   ├── user-card  
+│   │   │   ├── CardBody.tsx  
+│   │   │   ├── CardHeader.tsx  
+│   │   │   └── index.tsx  
+│   │   └── wrapper-cards  
+│   │       └── index.tsx  
+│   ├── core  
+│   │   ├── config  
+│   │   ├── constants  
+│   │   ├── hooks  
+│   │   ├── services\api  
+│   │   │   └── GetAllUsers.ts  
+│   │   └── types  
+│   │       ├── common  
+│   │       │   ├── children.interface.ts  
+│   │       │   ├── user.type.ts  
+│   │       │   └── users.params.interface.ts  
+│   │       └── props  
+│   │           └── fc-children.type.ts  
+│   ├── custom.d.ts  
+│   ├── index.css  
+│   └── main.tsx  
+└── node_modules  
 
 
 ### Project Structure Overview 🗺️  
